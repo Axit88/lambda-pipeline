@@ -11,7 +11,3 @@ Resources:
       Tags:
         - Key: Name
           Value: My S3 Bucket
-Outputs:
-  S3Bucket:
-    Description: S3Bucket Name
-    Value: !Ref MyBucket
