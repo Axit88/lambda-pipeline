@@ -4,7 +4,7 @@ Resources:
   MyBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: axitsamplepipelinebucket4  # bucket name must be unique and not use upper case.
+      BucketName: axitsamplepipelinebucket5  # bucket name must be unique and not use upper case.
       AccessControl: Private
       VersioningConfiguration:
         Status: Enabled
