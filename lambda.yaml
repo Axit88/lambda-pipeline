@@ -9,4 +9,5 @@ Resources:
         S3Bucket: mybucketabc235d
         S3Key: archive.zip
       Runtime: go1.x
+      Role: arn:aws:iam::803928384365:role/LambdaSampleRole
       Timeout: 10
