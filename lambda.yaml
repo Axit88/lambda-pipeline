@@ -1,1 +1,13 @@
 
+  AWSTemplateFormatVersion: "2010-09-09"
+  Resources:
+    LambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Handler: main
+        FunctionName: PipelineLambdaFunction
+        Code:
+          S3Bucket: mybucketabc235d
+          S3Key: archive.zip
+        Runtime: go1.x
+        Timeout: 10
