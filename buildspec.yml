@@ -1,1 +1,14 @@
 
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        go: 1.x
+  build:
+    commands:
+      - GOOS=linux go build main.go && zip archive.zip main
+      
+artifacts:
+  type: zip
+  paths:
+    - '*'
