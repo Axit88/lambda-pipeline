@@ -7,8 +7,10 @@ phases:
   build:
     commands:
       - GOOS=linux go build main.go && zip archive.zip main
-      
+      - export ARTIFACTS_BUCKET=mybucketabc235d
+      - aws s3 cp archive.zip s3://$ARTIFACTS_BUCKET/archive.zip
 artifacts:
   type: zip
-  paths:
-    - '*'
+  files: 
+    - lambda.yaml
+    - archive.zip
