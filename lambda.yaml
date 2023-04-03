@@ -1,10 +1,16 @@
 AWSTemplateFormatVersion: "2010-09-09"
+
+Parameters:
+  LambdaFunctionName: 
+    Type: String
+    Default: codepipeline-lambda-function
+
 Resources:
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
       Handler: main
-      FunctionName: PipelineLambdaFunction
+      FunctionName: !Ref LambdaFunctionName
       Code:
         S3Bucket: mybucketabc235d
         S3Key: archive.zip
