@@ -1,4 +1,3 @@
-
 version: 0.2
 phases:
   install:
@@ -8,12 +7,6 @@ phases:
     commands:
       - GOOS=linux go build main.go && zip archive.zip main
       - export ARTIFACTS_BUCKET=mybucketabc235d
-      - aws s3 cp archive.zip s3://$ARTIFACTS_BUCKET/archive.zip
-artifacts:
-  type: zip
-  files: 
-    - lambda.yaml
-    - archive.zip
-    - prodParameter.json
-    - qaParameter.json
-    - devParameter.json
+      - aws s3 cp archive.zip s3://$ARTIFACTS_BUCKET/$FunctionName/archive.zip
+      - aws lambda update-function-code --function-name $FunctionName --s3-bucket $ARTIFACTS_BUCKET --s3-key archive.zip
+
