@@ -201,8 +201,8 @@ Resources:
         ImagePullCredentialsType: CODEBUILD
       ServiceRole: !GetAtt IAMRoleForLambdaCodeBuild.Arn
       EnvironmentVariables:
-          - Name: FunctionName 
-            Value: ProdLambdaFunction
+        - Name: FunctionName 
+          Value: ProdLambdaFunction
       TimeoutInMinutes: 60
       QueuedTimeoutInMinutes: 480
       LogsConfig:
@@ -217,7 +217,7 @@ Resources:
         SecretToken: !Ref OAuthToken
       Filters:
         - JsonPath: $.ref
-          MatchEquals: !Sub refs/heads/main
+          MatchEquals: refs/heads/{Branch} 
       TargetAction: Source 
       TargetPipeline: !Ref LambdaCodePipeline
       TargetPipelineVersion: !GetAtt LambdaCodePipeline.Version
